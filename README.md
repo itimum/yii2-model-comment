@@ -21,6 +21,12 @@ or add
 
 to the require section of your `composer.json` file.
 
+Migration
+----
+
+```
+php yii migrate --migrationPath=@itimum/modelComment/migrations
+```
 
 Usage
 -----
@@ -28,4 +34,11 @@ Usage
 Once the extension is installed, simply use it in your code by  :
 
 ```php
-<?= \itimum\modelComment\AutoloadExample::widget(); ?>```
+public function behaviors() {
+    return [
+        [
+            'class' => itimum\modelComment\ModelCommentBehavior::class
+        ]
+    ];
+}
+```
