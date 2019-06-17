@@ -25,6 +25,10 @@ class ModelCommentBehavior extends Behavior {
 
         parent::attach($owner);
 
+        /*
+         * TODO
+         * В методе on добавлен четвертый параметр false чтобы данный обработчик не был последник в порядке срабатывания
+         */
         if ($this->owner instanceof ActiveRecord) {
             $this->owner->on(ActiveRecord::EVENT_AFTER_UPDATE, [$this, 'addCommentRecord'], null, false);
             $this->owner->on(ActiveRecord::EVENT_AFTER_INSERT, [$this, 'addCommentRecord'], null, false);
